@@ -1,0 +1,7 @@
+# Cloudflare Pages redirects file
+# Format: <from> <to> <status>
+# Examples for the future once apps launch:
+#   /cheap-eats  https://apps.apple.com/...  302
+#   /android     https://play.google.com/...  302
+
+# Currently empty — add launch redirects as apps go live.

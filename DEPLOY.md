@@ -1,6 +1,14 @@
-# Deploy to Cloudflare Pages (free, via GitHub)
+# Deploy to Cloudflare (free, via GitHub)
 
-This is your one-time setup. After this, every `git push` automatically rebuilds and redeploys the site.
+> ✅ **This site is already deployed at:** **https://everyday-studio.everydaystudio.workers.dev**
+>
+> Every `git push` to `main` auto-deploys in ~30 seconds.
+
+The rest of this document is kept as a reference for the original one-time setup, in case the project needs to be redeployed or replicated.
+
+---
+
+This is the one-time setup that was performed. After this, every `git push` automatically rebuilds and redeploys the site.
 
 **Time required:** about 10 minutes total.
 
@@ -64,13 +72,15 @@ That's it. No credit card needed. Cloudflare Pages is genuinely free with **500 
 6. Configure the build:
    - **Project name:** `everyday-studio` (this becomes part of your URL)
    - **Production branch:** `main`
-   - **Framework preset:** **None**
+   - **Framework preset:** **None** / **Static**
    - **Build command:** *leave empty*
-   - **Build output directory:** *leave empty* (or `/`)
+   - **Build output directory:** *leave empty* (or `.`)
    - **Environment variables:** none needed
 7. Click **Save and Deploy**.
 
 Wait ~30 seconds. Cloudflare will build and deploy.
+
+> 💡 In current Cloudflare dashboards, static sites are increasingly deployed via the Workers Builds pipeline (instead of the classic Pages pipeline). Either is fine — the URL pattern will be `<project>.<account-subdomain>.workers.dev` (Workers) or `<project>.pages.dev` (Pages). Both serve identically and auto-deploy on every git push.
 
 ---
 
@@ -78,9 +88,9 @@ Wait ~30 seconds. Cloudflare will build and deploy.
 
 Your site is now at:
 
-**`https://everyday-studio.pages.dev`**
+**`https://everyday-studio.everydaystudio.workers.dev`**
 
-(The exact subdomain may have a random suffix the first time — you can rename it later in **Settings → General → Custom domains → pages.dev subdomain**.)
+(Cloudflare deployed this as a **Worker** rather than a classic Pages project, so the URL pattern is `<project>.<account-subdomain>.workers.dev`. The account-subdomain was renamed from the default to `everydaystudio` for brand alignment.)
 
 Every time you push a commit to `main`, Cloudflare will redeploy in ~15 seconds. Each branch and pull request also gets its own preview URL — useful for testing changes before going live.
 
@@ -94,14 +104,14 @@ Once you've bought the domain:
 1. In Cloudflare dashboard: **Domain Registration → Register Domains**.
 2. Search `everydaystudio.com`, buy it (~$10/yr, at cost — no markup).
 3. The domain automatically lives on your Cloudflare account.
-4. Go to your Pages project → **Custom domains** → **Set up a custom domain** → enter `everydaystudio.com` and `www.everydaystudio.com`.
+4. Go to your Worker (Workers & Pages → `everyday-studio`) → **Settings** → **Domains & Routes** → **Add** → **Custom domain** → enter `everydaystudio.com`. Repeat for `www.everydaystudio.com`.
 5. Cloudflare auto-configures the DNS. SSL is automatic. Done.
 
 ### If you buy via Porkbun / Namecheap / another registrar
 1. Buy the domain there.
-2. In your Pages project → **Custom domains** → **Set up a custom domain** → enter `everydaystudio.com`.
-3. Cloudflare gives you a CNAME / nameserver instruction.
-4. **Recommended:** transfer the domain to Cloudflare later for cheaper renewals (no rush).
+2. In your Worker → **Settings** → **Domains & Routes** → **Add** → **Custom domain** → enter `everydaystudio.com`.
+3. Cloudflare will show you the DNS records (or nameservers) to set at your registrar.
+4. **Recommended:** transfer the domain to Cloudflare Registrar later for cheaper renewals (no rush).
 
 ---
 
@@ -142,6 +152,11 @@ That's it. You'll get a deploy notification email each time.
 
 **Want to change brand/copy fast**
 → Edit locally, push to `main`, Cloudflare redeploys in ~15 seconds.
+
+**Renaming the workers.dev subdomain**
+→ Workers & Pages → Account Details (right sidebar) → click your current subdomain → **Change**.
+→ Type ONLY the prefix (e.g. `everydaystudio`), not the full URL. Cloudflare appends `.workers.dev` automatically.
+→ ⚠️ This changes the URL of every Worker on your account. After saving, allow 1–5 minutes for propagation.
 
 ---
 

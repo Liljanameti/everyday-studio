@@ -3,10 +3,11 @@
 A single-page marketing site for **Everyday Studio**, an independent studio building small, useful apps for daily life.
 
 - **Brand:** Everyday Studio
-- **Domain:** `everydaystudio.com` (not yet registered)
+- **Live site:** [everyday-studio.everydaystudio.workers.dev](https://everyday-studio.everydaystudio.workers.dev)
+- **Custom domain (future):** `everydaystudio.com`
 - **Tagline:** *Useful apps for daily life.*
-- **Contact:** `hello@everydaystudio.com`
-- **Hosting:** Cloudflare Pages (free)
+- **Contact:** `hello@everydaystudio.com` (set up after domain purchase)
+- **Hosting:** Cloudflare Workers (free, auto-deploys from `main`)
 
 ## What's inside
 
@@ -40,14 +41,15 @@ This project is set up for **Cloudflare Pages** (free, fast, auto-deploys from G
 
 👉 **Full step-by-step guide:** see [`DEPLOY.md`](./DEPLOY.md).
 
-Short version:
-1. Create a GitHub repo, push this code.
-2. Sign up at https://dash.cloudflare.com (free).
-3. Workers & Pages → Create application → Connect to Git → pick this repo.
-4. Build command: *(empty)*, Output: *(empty)*. Click Deploy.
-5. Site live at `https://everyday-studio.pages.dev` in ~30 seconds.
+Already deployed at: **https://everyday-studio.everydaystudio.workers.dev**
 
-Each `git push` after that auto-deploys in ~15 seconds.
+Every `git push` to `main` auto-deploys in ~30 seconds via Cloudflare Workers Builds.
+
+Setup steps (already completed, kept for reference):
+1. GitHub repo created at `Liljanameti/everyday-studio`.
+2. Cloudflare account created, free plan.
+3. Workers & Pages → Connect to Git → repo connected.
+4. Workers subdomain set to `everydaystudio.workers.dev`.
 
 ## Buying the domain
 

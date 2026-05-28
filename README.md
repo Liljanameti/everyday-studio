@@ -3,9 +3,10 @@
 A single-page marketing site for **Everyday Studio**, an independent studio building small, useful apps for daily life.
 
 - **Brand:** Everyday Studio
-- **Domain:** `everydaystudio.com`
+- **Domain:** `everydaystudio.com` (not yet registered)
 - **Tagline:** *Useful apps for daily life.*
 - **Contact:** `hello@everydaystudio.com`
+- **Hosting:** Cloudflare Pages (free)
 
 ## What's inside
 
@@ -13,7 +14,11 @@ A single-page marketing site for **Everyday Studio**, an independent studio buil
 everyday-studio/
 ├── index.html        # The site (semantic, accessible, no JS framework)
 ├── styles.css        # Design system + responsive layout
+├── _headers          # Cloudflare Pages: security & caching headers
+├── _redirects        # Cloudflare Pages: URL redirects (future app store links)
+├── .gitignore        # Git ignore rules
 ├── README.md         # This file
+├── DEPLOY.md         # Step-by-step Cloudflare + GitHub deploy guide
 └── MARKETING.md      # Launch & growth playbook
 ```
 
@@ -29,34 +34,28 @@ npx serve .
 
 Then visit `http://localhost:8080`.
 
-## Deploy (free, under 5 min)
+## Deploy
 
-### Option A — Netlify (drag & drop)
-1. Go to https://app.netlify.com/drop
-2. Drag the `everyday-studio` folder in.
-3. Free `*.netlify.app` URL instantly.
+This project is set up for **Cloudflare Pages** (free, fast, auto-deploys from GitHub).
 
-### Option B — Vercel
-```bash
-npm i -g vercel
-cd everyday-studio
-vercel
-```
+👉 **Full step-by-step guide:** see [`DEPLOY.md`](./DEPLOY.md).
 
-### Option C — GitHub Pages
-1. Push this folder to a new GitHub repo.
-2. Settings → Pages → Source: `main` / root.
+Short version:
+1. Create a GitHub repo, push this code.
+2. Sign up at https://dash.cloudflare.com (free).
+3. Workers & Pages → Create application → Connect to Git → pick this repo.
+4. Build command: *(empty)*, Output: *(empty)*. Click Deploy.
+5. Site live at `https://everyday-studio.pages.dev` in ~30 seconds.
 
-### Connect `everydaystudio.com`
-Once deployed, your host (Netlify/Vercel) will give you DNS records to set at your registrar. Both have one-click guides under "Custom domain".
+Each `git push` after that auto-deploys in ~15 seconds.
 
 ## Buying the domain
 
-Register `everydaystudio.com` at one of:
+Register `everydaystudio.com` once you're ready. In order of preference:
 
-- **Cloudflare Registrar** — at-cost pricing (~$10/yr), best for tech-savvy.
+- **Cloudflare Registrar** — at-cost pricing (~$10/yr), no markup. Best because your domain, DNS, and hosting all live in one place.
 - **Porkbun** — clean UX, fair prices, free WHOIS privacy.
-- **Namecheap** — beginner-friendly, lots of guides.
+- **Namecheap** — beginner-friendly.
 
 Avoid GoDaddy (constant upsells, expensive renewals).
 
